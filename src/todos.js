@@ -2,37 +2,38 @@ const Todos = (() =>{
   let todosArray = []
 
   const addTodo = (todo) => {
-    if(!todosArray.some(t => t.title === todo.title)){
+    if(!todosArray.some(t => t.id === todo.id)){
       todosArray.push(todo)
     } 
   }
 
-  const deleteTodo = (todoTitle) => {
-    if(todosArray.some(t => t.title === todoTitle)){
+  const deleteTodo = (todoId) => {
+    console.log(todoId)
+    if(todosArray.some(t => t.id === todoId)){
       //Deleting in place
       todosArray.forEach((t, ind) => {
-        if(t.title === todoTitle) {
+        if(t.id === todoId) {
           todosArray.splice(ind, 1)
         }
       })
-      return `${todoTitle} deleted`
+      return `${todoId} deleted`
     }
-    return `${todoTitle} not found`
+    return `${todoId} not found`
   }
 
   const getAllTodos = () => {
     return todosArray
   }
 
-  const getTodo = (todoTitle) => {
+  const getTodo = (todoId) => {
     let todo = null
     todosArray.some((t, tInd) => {
-      if(t.title === todoTitle) {
+      if(t.id === todoId) {
         todo = todosArray[tInd]
       }
     }) 
     if(todo) return todo
-    return `${todoTitle} not found`
+    return `${todoId} not found`
   }
 
   return {
