@@ -1,11 +1,9 @@
-import Todo from './todo.js'
-
 const Todos = (() =>{
   let todosArray = []
 
-  const addTodo = (todoTitle) => {
-    if(!todosArray.some(t => t.title === todoTitle)){
-      todosArray.push(new Todo(todoTitle))
+  const addTodo = (todo) => {
+    if(!todosArray.some(t => t.title === todo.title)){
+      todosArray.push(todo)
     } 
   }
 

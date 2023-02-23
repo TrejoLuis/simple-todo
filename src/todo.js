@@ -1,13 +1,14 @@
-import {addWeeks} from 'date-fns'
+import {addWeeks, format} from 'date-fns'
 
 export default class Todo {
   completed = false
-  priority =  2
-  dueDate = addWeeks(new Date(), 1)
-  description = ''
-
-  constructor(title) {
-    this.title = title 
+  #dueDate = ''
+  constructor(title, description = '', priority = 2, dueDate = addWeeks(new Date(), 1)) {
+    this.title = title
+    this.description = description
+    this.priority = priority
+    this.#dueDate = dueDate instanceof Date ? 
+      dueDate : new Date(dueDate)  
   }
 
   toggleCompleted () {
@@ -16,5 +17,16 @@ export default class Todo {
 
   get isCompleted(){
     return this.completed
+  }
+
+  get dueDate () {
+    if(this.#dueDate instanceof Date){
+      return format(this.#dueDate, 'MM/dd/yyyy')
+    }
+    return this.#dueDate
+  }
+
+  set dueDate (date) {
+    this.#dueDate = new Date(date)
   }
 }
