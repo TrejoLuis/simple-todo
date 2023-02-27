@@ -1,4 +1,22 @@
+import './style.css'
+import DOMGen from './DOMGen.js'
+import {listeners} from './functions.js'
 
+import Todos from '../src/todos.js'
+import Todo from '../src/todo.js'
+
+window.Todos = Todos
+
+//Filling data
+Todos.addTodo(new Todo('todo1', 'testing testing test', 1))
+Todos.addTodo(new Todo('important todo', 'tessiofajo saoijf oasjf fad', 3))
+Todos.addTodo(new Todo('todo5 afs mwe', 'ahsdfsaoijf fadsdf'))
+
+DOMGen.init()
+
+//Testing console logic behavior
+
+/* 
 //Testing console logic behavior
 import Todos from '../src/todos.js'
 
@@ -21,4 +39,4 @@ console.log(todo1)
 Todos.deleteTodo('pay credit card')
 console.log(Todos.getAllTodos())
 
-
+ */

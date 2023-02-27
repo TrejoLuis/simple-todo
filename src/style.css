@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+
+}
+
+header{
+  background-color: moccasin;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerList {
+  display: flex;
+  list-style: none;
+}
+
+.headerList a{
+  text-decoration: none;
+  display: block;
+}
+
+.headerList a:hover{
+  background-color: olive;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* add form */
+.addTodo-container{
+  background-color: olive;
+  padding: 1rem;
+}
+#toggle-hiddenForm{
+  display: block;
+  text-align: center;
+}
+#toggle-hiddenForm:hover{
+  background-color: coral;
+}
+
+.hiddenForm{
+  /* display: none; */
+}
+
+/* todos container */
+.todo-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* todo card */
+.todo-card{
+  background-color: bisque;
+  border-radius: 0.5em;
+  padding: 1.5rem 2rem;
+  position: relative;
+}
+.close-card{
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+.close-card::after{
+  content: 'x';
+}
+.close-card:hover{
+  text-shadow: 1px 3px 3px black;
+}
+.close-card:active{
+  text-shadow: none;
+}
+
+.card-priority-container{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem; 
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-priority{
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.card-priority:hover{
+  box-shadow: 1px 3px 3px black ;
+}
+.card-priority:active{
+  box-shadow: none;
+}
+.card-priority[priority='1']{
+  background-color: green;
+}
+.card-priority[priority='2']{
+  background-color: yellow;
+}
+.card-priority[priority='3']{
+  background-color: red;
+}
+
+.priority-low{
+  background-color: green;
+}
+.priority-medium{
+  background-color: yellow;
+}
+.priority-high{
+  background-color: red;
+}
